@@ -84,7 +84,7 @@ The Collection interface is a subtype of Iterable and has a stream method, so it
 
 Collection 接口是 Iterable 的一个子类型，它有一个流方法，因此它提供了迭代和流两种访问方式。因此，**Collection 或其适当的子类通常是公共序列返回方法的最佳返回类型。** 数组还提供了使用 `Arrays.asList` 和 `Stream.of` 方法进行简单迭代和流访问。如果返回的序列足够小，可以轻松地装入内存，那么最好返回标准集合实现之一，例如 ArrayList 或 HashSet。但是 **不要将一个大的序列存储在内存中，只是为了将它作为一个集合返回。**
 
-If the sequence you’re returning is large but can be represented concisely, consider implementing a special-purpose collection. For example, suppose you want to return the power set of a given set, which consists of all of its subsets. The power set of {a, b, c} is {{}, {a}, {b}, {c}, {a, b}, {a, c}, {b, c}, {a, b, c}}. If a set has n elements, its power set has 2n. Therefore, you shouldn’t even consider storing the power set in a standard collection implementation. It is, however, easy to implement a custom collection for the job with the help of AbstractList.
+If the sequence you’re returning is large but can be represented concisely, consider implementing a special-purpose collection. For example, suppose you want to return the power set of a given set, which consists of all of its subsets. The power set of `{a, b, c}` is `{{}, {a}, {b}, {c}, {a, b}, {a, c}, {b, c}, {a, b, c}}`. If a set has n elements, its power set has 2n. Therefore, you shouldn’t even consider storing the power set in a standard collection implementation. It is, however, easy to implement a custom collection for the job with the help of AbstractList.
 
 如果返回的序列比较大，但是可以有规律地表示，那么可以考虑实现一个特殊用途的集合。例如，假设你想要返回给定集合的幂集，该集合由它的所有子集组成。`{a, b, c}` 的排列组合有 `{{}, {a}, {b}, {c}, {a, b}, {a, c}, {b, c}, {a, b, c}}`。如果一个集合有 n 个元素，它的幂集有 2<sup>n</sup>。因此，你甚至不应该考虑在标准集合实现中存储全部排列组合。然而，在 AbstractList 的帮助下，可以很容易实现这个需求的自定义集合。
 
